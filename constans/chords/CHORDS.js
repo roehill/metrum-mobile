@@ -1,0 +1,148 @@
+const CHORDS = [
+  {
+    id: 1,
+    chordName: "CMaj",
+    chordNotes: "C - E - G",
+    chordImage: require("../../assets/images/chords/CMaj.png"),
+  },
+  {
+    id: 2,
+    chordName: "CMin",
+    chordNotes: "C - Eb - G",
+    chordImage: require("../../assets/images/chords/CMin.png"),
+  },
+  {
+    id: 3,
+    chordName: "C#Maj",
+    chordNotes: "C# - F - G#",
+    chordImage: require("../../assets/images/chords/CSharpMaj.png"),
+  },
+  {
+    id: 4,
+    chordName: "C#Min",
+    chordNotes: "C# - E - G#",
+    chordImage: require("../../assets/images/chords/CSharpMin.png"),
+  },
+  {
+    id: 5,
+    chordName: "DMaj",
+    chordNotes: "D - F# - A",
+    chordImage: require("../../assets/images/chords/DMaj.png"),
+  },
+  {
+    id: 6,
+    chordName: "DMin",
+    chordNotes: "D - F - A",
+    chordImage: require("../../assets/images/chords/DMin.png"),
+  },
+  {
+    id: 7,
+    chordName: "D#Maj",
+    chordNotes: "D# - G - A#",
+    chordImage: require("../../assets/images/chords/DSharpMaj.png"),
+  },
+  {
+    id: 8,
+    chordName: "D#Min",
+    chordNotes: "D# - F# - A#",
+    chordImage: require("../../assets/images/chords/DSharpMin.png"),
+  },
+  {
+    id: 9,
+    chordName: "EMaj",
+    chordNotes: "E - G# - B",
+    chordImage: require("../../assets/images/chords/EMaj.png"),
+  },
+  {
+    id: 10,
+    chordName: "EMin",
+    chordNotes: "E - G - B",
+    chordImage: require("../../assets/images/chords/EMin.png"),
+  },
+  {
+    id: 11,
+    chordName: "FMaj",
+    chordNotes: "F - A - C",
+    chordImage: require("../../assets/images/chords/FMaj.png"),
+  },
+  {
+    id: 12,
+    chordName: "FMin",
+    chordNotes: "F - G# - C",
+    chordImage: require("../../assets/images/chords/FMin.png"),
+  },
+  {
+    id: 13,
+    chordName: "F#Maj",
+    chordNotes: "F# - A# - C#",
+    chordImage: require("../../assets/images/chords/FSharpMaj.png"),
+  },
+  {
+    id: 14,
+    chordName: "F#Min",
+    chordNotes: "F# - A - C#",
+    chordImage: require("../../assets/images/chords/FSharpMin.png"),
+  },
+  {
+    id: 15,
+    chordName: "GMaj",
+    chordNotes: "G - B - D",
+    chordImage: require("../../assets/images/chords/GMaj.png"),
+  },
+  {
+    id: 16,
+    chordName: "GMin",
+    chordNotes: "G - A# - D",
+    chordImage: require("../../assets/images/chords/GMin.png"),
+  },
+  {
+    id: 17,
+    chordName: "G#Maj",
+    chordNotes: "G# - C - D#",
+    chordImage: require("../../assets/images/chords/GSharpMaj.png"),
+  },
+  {
+    id: 18,
+    chordName: "G#Min",
+    chordNotes: "G# - B - D#",
+    chordImage: require("../../assets/images/chords/GSharpMin.png"),
+  },
+  {
+    id: 19,
+    chordName: "AMaj",
+    chordNotes: "A - C# - E",
+    chordImage: require("../../assets/images/chords/AMaj.png"),
+  },
+  {
+    id: 20,
+    chordName: "AMin",
+    chordNotes: "A - C - E",
+    chordImage: require("../../assets/images/chords/AMin.png"),
+  },
+  {
+    id: 21,
+    chordName: "A#Maj",
+    chordNotes: "A# - D - F",
+    chordImage: require("../../assets/images/chords/ASharpMaj.png"),
+  },
+  {
+    id: 22,
+    chordName: "A#Min",
+    chordNotes: "A# - C# - F",
+    chordImage: require("../../assets/images/chords/ASharpMin.png"),
+  },
+  {
+    id: 23,
+    chordName: "BMaj",
+    chordNotes: "B - D# - F#",
+    chordImage: require("../../assets/images/chords/BMaj.png"),
+  },
+  {
+    id: 24,
+    chordName: "BMin",
+    chordNotes: "B - D - F#",
+    chordImage: require("../../assets/images/chords/BMin.png"),
+  },
+];
+
+export default CHORDS;

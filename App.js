@@ -1,20 +1,48 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { useState } from "react";
+import { StyleSheet, Text, View } from "react-native";
+import * as Font from "expo-font";
+import AppLoading from "expo-app-loading";
 
-export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
-}
+import Navigator from "./navigation/Navigator";
+
+const fetchFonts = () => {
+  return Font.loadAsync({
+    "poppins-regular": require("./assets/fonts/Poppins-Regular.ttf"),
+    "poppins-bold": require("./assets/fonts/Poppins-Bold.ttf"),
+    "poppins-black": require("./assets/fonts/Poppins-Black.ttf"),
+  });
+};
+
+import MainMenu from "./components/menu/MainMenu";
+
+const App = () => {
+  const [dataLoaded, setDataLoaded] = useState(false);
+
+  if (!dataLoaded) {
+    return (
+      <AppLoading
+        startAsync={fetchFonts}
+        onFinish={() => setDataLoaded(true)}
+        onError={(error) => console.warn(error)}
+      />
+    );
+  } else {
+    return (
+      <Navigator />
+
+      // <View style={styles.container}>
+      //   <MainMenu />
+      // </View>
+    );
+  }
+};
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    alignItems: "center",
+    justifyContent: "center",
   },
 });
+
+export default App;
