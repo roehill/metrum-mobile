@@ -1,8 +1,8 @@
 import { useEffect, useRef, useState } from "react";
 import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
 
-import colors from "../colors";
-import ROOT_NOTES from "../../constans/ROOT_NOTES";
+import colors from "./colors";
+import ROOT_NOTES from "../constans/ROOT_NOTES";
 
 const RootNoteMenu = (props) => {
   const selectRootNote = (rootNote, id) => {

@@ -5,7 +5,7 @@ import colors from "../../components/colors";
 import ROOT_NOTES from "../../constans/ROOT_NOTES";
 
 import BackButton from "../../components/menu/BackButton";
-import RootNoteMenu from "../../components/chordsGenerator/RootNoteMenu";
+import RootNoteMenu from "../../components/RootNoteMenu";
 
 const ScalesScreen = (props) => {
   const [rootNote, setRootNote] = useState("");

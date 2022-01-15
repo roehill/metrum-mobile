@@ -6,7 +6,7 @@ import CHORDS from "../../constans/chords/CHORDS";
 import ROOT_NOTES from "../../constans/ROOT_NOTES";
 
 import BackButton from "../../components/menu/BackButton";
-import RootNoteMenu from "../../components/chordsGenerator/RootNoteMenu";
+import RootNoteMenu from "../../components/RootNoteMenu";
 import ChordTypeMenu from "../../components/chordsGenerator/ChordTypeMenu";
 
 const ChordsScreen = (props) => {
