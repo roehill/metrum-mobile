@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
+import { View, Text, StyleSheet, TouchableOpacity, Modal } from "react-native";
 import { AntDesign } from "@expo/vector-icons";
 
 import colors from "../colors";
@@ -17,9 +17,18 @@ const ChordTypeMenu = (props) => {
     setVisible(!visible);
   };
 
-  const renderDropdown = () => {
-    if (visible) {
-      return (
+  return (
+    <View>
+      <TouchableOpacity onPress={toggleDropdown} style={styles.dropdown}>
+        <Text style={styles.dropdownText}>Tap to expand</Text>
+        <AntDesign name="down" size={25} color={colors.primary} />
+      </TouchableOpacity>
+      <Modal
+        visible={visible}
+        onRequestClose={() => {
+          setVisible(!visible);
+        }}
+      >
         <View style={styles.dropdownList}>
           {CHORD_TYPES.map((chord) => (
             <TouchableOpacity
@@ -30,19 +39,11 @@ const ChordTypeMenu = (props) => {
               <Text style={styles.dropdownListItemText}>{chord.chordType}</Text>
             </TouchableOpacity>
           ))}
-          <View style={styles.modal}></View>
+          <TouchableOpacity onPress={toggleDropdown} style={styles.closeButton}>
+            <Text style={styles.closeButtonText}>Close</Text>
+          </TouchableOpacity>
         </View>
-      );
-    }
-  };
-
-  return (
-    <View>
-      <TouchableOpacity onPress={toggleDropdown} style={styles.dropdown}>
-        <Text style={styles.dropdownText}>Tap to expand</Text>
-        <AntDesign name="down" size={25} color={colors.primary} />
-      </TouchableOpacity>
-      {renderDropdown()}
+      </Modal>
     </View>
   );
 };
@@ -75,21 +76,14 @@ const styles = StyleSheet.create({
     color: colors.primary,
   },
   dropdownList: {
-    position: "absolute",
-    top: 60,
-    width: "100%",
-    left: 0,
-    zIndex: 98,
-    paddingVertical: 10,
-    flexDirection: "row",
-    flexWrap: "wrap",
+    flex: 1,
     justifyContent: "center",
-    backgroundColor: "white",
+    alignItems: "center",
   },
   dropdownListItem: {
     margin: 2,
     backgroundColor: "#c6c6c6",
-    width: 80,
+    width: "90%",
     height: 40,
     alignItems: "center",
     justifyContent: "center",
@@ -98,6 +92,19 @@ const styles = StyleSheet.create({
     paddingTop: 3,
     fontFamily: "poppins-bold",
     color: colors.textColor,
+  },
+  closeButton: {
+    marginTop: 20,
+    backgroundColor: "#FC5050",
+    width: "90%",
+    height: 40,
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  closeButtonText: {
+    paddingTop: 3,
+    fontFamily: "poppins-bold",
+    color: "white",
   },
 });
 

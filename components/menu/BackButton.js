@@ -5,7 +5,10 @@ import colors from "../colors";
 
 const BackButton = (props) => {
   return (
-    <TouchableOpacity onPress={props.onBack} style={styles.buttonContainer}>
+    <TouchableOpacity
+      onPress={props.onBack}
+      style={{ ...styles.buttonContainer, ...props.style }}
+    >
       <AntDesign name="arrowleft" size={30} color="#404040" />
       <Text style={styles.buttonTitle}>Back</Text>
     </TouchableOpacity>
