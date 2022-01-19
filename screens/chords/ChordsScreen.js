@@ -2,9 +2,10 @@ import { useState } from "react";
 import { View, Text, StyleSheet, Image } from "react-native";
 
 import colors from "../../components/colors";
-import CHORDS from "../../constans/chords/CHORDS";
+import majorChords from "../../constans/chords/CHORDS";
 import ROOT_NOTES from "../../constans/ROOT_NOTES";
 
+import Stave from "../../components/Stave";
 import BackButton from "../../components/menu/BackButton";
 import RootNoteMenu from "../../components/RootNoteMenu";
 import ChordTypeMenu from "../../components/chordsGenerator/ChordTypeMenu";
@@ -21,20 +22,19 @@ const ChordsScreen = (props) => {
     setChordType(selectedChordType);
   };
 
-  const chordImage = () => {
-    if (rootNote != "" && chordType != "") {
-      const chord = CHORDS.find(
+  const stave = () => {
+    if (rootNote != "" && chordType === "Maj") {
+      const chord = majorChords.find(
         (chord) => chord.chordName === `${rootNote}${chordType}`
       );
-      const chordImage = chord.chordImage;
       return (
         <View>
           <Text style={styles.chordName}>
             {rootNote}
             {chordType} chord
           </Text>
-          <Image style={styles.chordImage} source={chordImage} />
-          <Text style={styles.chordName}>{chord.chordNotes}</Text>
+          <Stave chordNotes={chord.chordNotes} />
+          <Text style={styles.chordName}>{chord.notes}</Text>
         </View>
       );
     }
@@ -54,7 +54,7 @@ const ChordsScreen = (props) => {
       <RootNoteMenu onChooseRootNote={selectRootNote} />
       <Text style={styles.hint}>...and a chord type</Text>
       <ChordTypeMenu onChooseChordType={selectChordType} />
-      {chordImage()}
+      {stave()}
     </View>
   );
 };
