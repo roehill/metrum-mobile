@@ -7,9 +7,11 @@ import CHORD_TYPES from "../../constans/chords/CHORD_TYPES";
 
 const ChordTypeMenu = (props) => {
   const [visible, setVisible] = useState(false);
+  const [showChord, setShowChord] = useState("");
 
   const selectChordType = (chordType) => {
     props.onChooseChordType(chordType);
+    setShowChord(chordType);
     setVisible(false);
   };
 
@@ -17,10 +19,22 @@ const ChordTypeMenu = (props) => {
     setVisible(!visible);
   };
 
+  const dropdownText = () => {
+    if (showChord === "") {
+      return <Text style={styles.dropdownText}>Tap to expand</Text>;
+    } else {
+      return (
+        <Text style={styles.dropdownText}>
+          Selected chord type: {showChord}
+        </Text>
+      );
+    }
+  };
+
   return (
     <View>
       <TouchableOpacity onPress={toggleDropdown} style={styles.dropdown}>
-        <Text style={styles.dropdownText}>Tap to expand</Text>
+        {dropdownText()}
         <AntDesign name="down" size={25} color={colors.primary} />
       </TouchableOpacity>
       <Modal

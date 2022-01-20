@@ -2,7 +2,7 @@ import { useState } from "react";
 import { View, Text, StyleSheet, Image } from "react-native";
 
 import colors from "../../components/colors";
-import majorChords from "../../constans/chords/CHORDS";
+import { majorChords, minorChords } from "../../constans/chords/CHORDS";
 import ROOT_NOTES from "../../constans/ROOT_NOTES";
 
 import Stave from "../../components/Stave";
@@ -23,18 +23,26 @@ const ChordsScreen = (props) => {
   };
 
   const stave = () => {
-    if (rootNote != "" && chordType === "Maj") {
-      const chord = majorChords.find(
+    if (rootNote != "" && chordType != "") {
+      let chords = {};
+      if (chordType === "Maj") {
+        chords = majorChords;
+      } else if (chordType === "Min") {
+        chords = minorChords;
+      }
+      const chord = chords.find(
         (chord) => chord.chordName === `${rootNote}${chordType}`
       );
       return (
         <View>
-          <Text style={styles.chordName}>
-            {rootNote}
-            {chordType} chord
-          </Text>
+          <View style={styles.chordNameContainer}>
+            <Text style={styles.chordName}>
+              {rootNote}
+              {chordType} chord
+            </Text>
+            <Text style={styles.chordName}>( {chord.notes} )</Text>
+          </View>
           <Stave chordNotes={chord.chordNotes} />
-          <Text style={styles.chordName}>{chord.notes}</Text>
         </View>
       );
     }
@@ -74,9 +82,10 @@ const styles = StyleSheet.create({
   chordImage: {
     width: "100%",
   },
+  chordNameContainer: {
+    marginVertical: 10,
+  },
   chordName: {
-    paddingTop: 20,
-    paddingBottom: 10,
     fontFamily: "poppins-bold",
     color: "#404040",
     fontSize: 18,
