@@ -9,9 +9,9 @@ const ChordTypeMenu = (props) => {
   const [visible, setVisible] = useState(false);
   const [showChord, setShowChord] = useState("");
 
-  const selectChordType = (chordType) => {
+  const selectChordType = (chordType, chordFullName) => {
     props.onChooseChordType(chordType);
-    setShowChord(chordType);
+    setShowChord(chordFullName);
     setVisible(false);
   };
 
@@ -23,11 +23,7 @@ const ChordTypeMenu = (props) => {
     if (showChord === "") {
       return <Text style={styles.dropdownText}>Tap to expand</Text>;
     } else {
-      return (
-        <Text style={styles.dropdownText}>
-          Selected chord type: {showChord}
-        </Text>
-      );
+      return <Text style={styles.dropdownText}>Selected: {showChord}</Text>;
     }
   };
 
@@ -48,9 +44,15 @@ const ChordTypeMenu = (props) => {
             <TouchableOpacity
               key={chord.id}
               style={styles.dropdownListItem}
-              onPress={selectChordType.bind(this, chord.chordType)}
+              onPress={selectChordType.bind(
+                this,
+                chord.chordType,
+                chord.chordFullName
+              )}
             >
-              <Text style={styles.dropdownListItemText}>{chord.chordType}</Text>
+              <Text style={styles.dropdownListItemText}>
+                {chord.chordFullName}
+              </Text>
             </TouchableOpacity>
           ))}
           <TouchableOpacity onPress={toggleDropdown} style={styles.closeButton}>

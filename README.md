@@ -2,7 +2,7 @@ Clean and efficient music chords and scales generator.
 
 TO DO:
 
-1. Pass minor chords data
+1. Po cofnięciu nawigacji poprzez dolne menu root chord ma się zerować.
 
 IDEAS:
 

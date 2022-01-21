@@ -2,7 +2,7 @@ import { useState } from "react";
 import { View, Text, StyleSheet, Image } from "react-native";
 
 import colors from "../../components/colors";
-import { majorChords, minorChords } from "../../constans/chords/CHORDS";
+import * as type from "../../constans/chords/CHORDS";
 import ROOT_NOTES from "../../constans/ROOT_NOTES";
 
 import Stave from "../../components/Stave";
@@ -26,13 +26,19 @@ const ChordsScreen = (props) => {
     if (rootNote != "" && chordType != "") {
       let chords = {};
       if (chordType === "Maj") {
-        chords = majorChords;
+        chords = type.majorChords;
       } else if (chordType === "Min") {
-        chords = minorChords;
+        chords = type.minorChords;
+      } else if (chordType === "7") {
+        chords = type.dominantSeventhChords;
+      } else if (chordType === "Maj7") {
+        chords = type.majorSeventhChords;
       }
+
       const chord = chords.find(
         (chord) => chord.chordName === `${rootNote}${chordType}`
       );
+
       return (
         <View>
           <View style={styles.chordNameContainer}>
