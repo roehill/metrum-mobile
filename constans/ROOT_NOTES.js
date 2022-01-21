@@ -46,7 +46,7 @@ const ROOT_NOTES = [
   },
   {
     id: 10,
-    rootNote: "D",
+    rootNote: "A",
     active: false,
   },
   {
