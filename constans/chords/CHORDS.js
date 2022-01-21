@@ -1320,7 +1320,7 @@ const dominantSeventhChords = [
         id: 2,
         name: "D2",
         type: "full",
-        position: notesPositions[7].value,
+        position: notesPositions[8].value,
       },
       {
         id: 3,
@@ -1930,4 +1930,540 @@ const majorSeventhChords = [
   },
 ];
 
-export { majorChords, minorChords, dominantSeventhChords, majorSeventhChords };
+const minorSeventhChords = [
+  {
+    id: 1,
+    chordName: "Cm7",
+    notes: "C - Eb - G - Bb",
+    chordNotes: [
+      {
+        id: 1,
+        name: "C1",
+        type: "full",
+        position: notesPositions[0].value,
+      },
+      {
+        id: 2,
+        name: "Eb1",
+        type: "flat",
+        position: notesPositions[2].value,
+      },
+      {
+        id: 3,
+        name: "G1",
+        type: "full",
+        position: notesPositions[4].value,
+      },
+      {
+        id: 4,
+        name: "Bb1",
+        type: "flat",
+        position: notesPositions[6].value,
+      },
+    ],
+  },
+  {
+    id: 2,
+    chordName: "C#m7",
+    notes: "C# - E - G# - B",
+    chordNotes: [
+      {
+        id: 1,
+        name: "C#1",
+        type: "sharp",
+        position: notesPositions[0].value,
+      },
+      {
+        id: 2,
+        name: "E1",
+        type: "full",
+        position: notesPositions[2].value,
+      },
+      {
+        id: 3,
+        name: "G#1",
+        type: "sharp",
+        position: notesPositions[4].value,
+      },
+      {
+        id: 4,
+        name: "B1",
+        type: "full",
+        position: notesPositions[6].value,
+      },
+    ],
+  },
+  {
+    id: 3,
+    chordName: "Dbm7",
+    notes: "Db - E - Ab - B",
+    chordNotes: [
+      {
+        id: 1,
+        name: "Db1",
+        type: "flat",
+        position: notesPositions[1].value,
+      },
+      {
+        id: 2,
+        name: "E1",
+        type: "full",
+        position: notesPositions[2].value,
+      },
+      {
+        id: 3,
+        name: "Ab1",
+        type: "flat",
+        position: notesPositions[5].value,
+      },
+      {
+        id: 4,
+        name: "B1",
+        type: "full",
+        position: notesPositions[6].value,
+      },
+    ],
+  },
+  {
+    id: 4,
+    chordName: "Dm7",
+    notes: "D - F - A - C",
+    chordNotes: [
+      {
+        id: 1,
+        name: "D1",
+        type: "full",
+        position: notesPositions[1].value,
+      },
+      {
+        id: 2,
+        name: "F1",
+        type: "full",
+        position: notesPositions[3].value,
+      },
+      {
+        id: 3,
+        name: "A1",
+        type: "full",
+        position: notesPositions[5].value,
+      },
+      {
+        id: 4,
+        name: "C2",
+        type: "full",
+        position: notesPositions[7].value,
+      },
+    ],
+  },
+  {
+    id: 5,
+    chordName: "D#m7",
+    notes: "D# - F# - A# - C#",
+    chordNotes: [
+      {
+        id: 1,
+        name: "D#1",
+        type: "sharp",
+        position: notesPositions[1].value,
+      },
+      {
+        id: 2,
+        name: "F#1",
+        type: "sharp",
+        position: notesPositions[3].value,
+      },
+      {
+        id: 3,
+        name: "A#1",
+        type: "sharp",
+        position: notesPositions[5].value,
+      },
+      {
+        id: 4,
+        name: "C#2",
+        type: "sharp",
+        position: notesPositions[7].value,
+      },
+    ],
+  },
+  {
+    id: 6,
+    chordName: "Ebm7",
+    notes: "Eb - Gb - Bb - Db",
+    chordNotes: [
+      {
+        id: 1,
+        name: "Eb1",
+        type: "flat",
+        position: notesPositions[2].value,
+      },
+      {
+        id: 2,
+        name: "Gb1",
+        type: "flat",
+        position: notesPositions[4].value,
+      },
+      {
+        id: 3,
+        name: "Bb1",
+        type: "flat",
+        position: notesPositions[6].value,
+      },
+      {
+        id: 4,
+        name: "Db2",
+        type: "flat",
+        position: notesPositions[8].value,
+      },
+    ],
+  },
+  {
+    id: 7,
+    chordName: "Em7",
+    notes: "E - G - B - D",
+    chordNotes: [
+      {
+        id: 1,
+        name: "E1",
+        type: "full",
+        position: notesPositions[2].value,
+      },
+      {
+        id: 2,
+        name: "G1",
+        type: "full",
+        position: notesPositions[4].value,
+      },
+      {
+        id: 3,
+        name: "B1",
+        type: "full",
+        position: notesPositions[6].value,
+      },
+      {
+        id: 4,
+        name: "D2",
+        type: "full",
+        position: notesPositions[8].value,
+      },
+    ],
+  },
+  {
+    id: 8,
+    chordName: "Fm7",
+    notes: "F - Ab - C - Eb",
+    chordNotes: [
+      {
+        id: 1,
+        name: "F1",
+        type: "full",
+        position: notesPositions[3].value,
+      },
+      {
+        id: 2,
+        name: "Ab1",
+        type: "flat",
+        position: notesPositions[5].value,
+      },
+      {
+        id: 3,
+        name: "C2",
+        type: "full",
+        position: notesPositions[7].value,
+      },
+      {
+        id: 4,
+        name: "Eb2",
+        type: "flat",
+        position: notesPositions[9].value,
+      },
+    ],
+  },
+  {
+    id: 9,
+    chordName: "F#m7",
+    notes: "F# - A - C# - E",
+    chordNotes: [
+      {
+        id: 1,
+        name: "F#1",
+        type: "sharp",
+        position: notesPositions[3].value,
+      },
+      {
+        id: 2,
+        name: "A1",
+        type: "full",
+        position: notesPositions[5].value,
+      },
+      {
+        id: 3,
+        name: "C#2",
+        type: "sharp",
+        position: notesPositions[7].value,
+      },
+      {
+        id: 4,
+        name: "E2",
+        type: "full",
+        position: notesPositions[9].value,
+      },
+    ],
+  },
+  {
+    id: 10,
+    chordName: "Gbm7",
+    notes: "Gb - A - Db - E",
+    chordNotes: [
+      {
+        id: 1,
+        name: "Gb1",
+        type: "flat",
+        position: notesPositions[4].value,
+      },
+      {
+        id: 2,
+        name: "A1",
+        type: "full",
+        position: notesPositions[5].value,
+      },
+      {
+        id: 3,
+        name: "Db2",
+        type: "flat",
+        position: notesPositions[8].value,
+      },
+      {
+        id: 4,
+        name: "E2",
+        type: "full",
+        position: notesPositions[9].value,
+      },
+    ],
+  },
+  {
+    id: 11,
+    chordName: "Gm7",
+    notes: "G - Bb - D - F",
+    chordNotes: [
+      {
+        id: 1,
+        name: "G1",
+        type: "full",
+        position: notesPositions[4].value,
+      },
+      {
+        id: 2,
+        name: "Bb1",
+        type: "flat",
+        position: notesPositions[6].value,
+      },
+      {
+        id: 3,
+        name: "D2",
+        type: "full",
+        position: notesPositions[8].value,
+      },
+      {
+        id: 4,
+        name: "F2",
+        type: "full",
+        position: notesPositions[10].value,
+      },
+    ],
+  },
+  {
+    id: 12,
+    chordName: "G#m7",
+    notes: "G# - B - D# - F#",
+    chordNotes: [
+      {
+        id: 1,
+        name: "G#1",
+        type: "sharp",
+        position: notesPositions[4].value,
+      },
+      {
+        id: 2,
+        name: "B1",
+        type: "full",
+        position: notesPositions[6].value,
+      },
+      {
+        id: 3,
+        name: "D#2",
+        type: "sharp",
+        position: notesPositions[8].value,
+      },
+      {
+        id: 4,
+        name: "F#2",
+        type: "sharp",
+        position: notesPositions[10].value,
+      },
+    ],
+  },
+  {
+    id: 13,
+    chordName: "Abm7",
+    notes: "Ab - B - Eb - Gb",
+    chordNotes: [
+      {
+        id: 1,
+        name: "Ab1",
+        type: "flat",
+        position: notesPositions[5].value,
+      },
+      {
+        id: 2,
+        name: "B1",
+        type: "full",
+        position: notesPositions[6].value,
+      },
+      {
+        id: 3,
+        name: "Eb2",
+        type: "flat",
+        position: notesPositions[9].value,
+      },
+      {
+        id: 4,
+        name: "Gb2",
+        type: "flat",
+        position: notesPositions[11].value,
+      },
+    ],
+  },
+  {
+    id: 14,
+    chordName: "Am7",
+    notes: "A - C - E - G",
+    chordNotes: [
+      {
+        id: 1,
+        name: "A1",
+        type: "full",
+        position: notesPositions[5].value,
+      },
+      {
+        id: 2,
+        name: "C2",
+        type: "full",
+        position: notesPositions[7].value,
+      },
+      {
+        id: 3,
+        name: "E2",
+        type: "full",
+        position: notesPositions[9].value,
+      },
+      {
+        id: 4,
+        name: "G2",
+        type: "full",
+        position: notesPositions[11].value,
+      },
+    ],
+  },
+  {
+    id: 15,
+    chordName: "A#m7",
+    notes: "A# - C# - F - G#",
+    chordNotes: [
+      {
+        id: 1,
+        name: "A#1",
+        type: "sharp",
+        position: notesPositions[5].value,
+      },
+      {
+        id: 2,
+        name: "C#2",
+        type: "sharp",
+        position: notesPositions[7].value,
+      },
+      {
+        id: 3,
+        name: "F2",
+        type: "full",
+        position: notesPositions[10].value,
+      },
+      {
+        id: 4,
+        name: "G#2",
+        type: "sharp",
+        position: notesPositions[11].value,
+      },
+    ],
+  },
+  {
+    id: 16,
+    chordName: "Bbm7",
+    notes: "Bb - Db - F - Ab",
+    chordNotes: [
+      {
+        id: 1,
+        name: "Bb1",
+        type: "flat",
+        position: notesPositions[6].value,
+      },
+      {
+        id: 2,
+        name: "Db2",
+        type: "flat",
+        position: notesPositions[8].value,
+      },
+      {
+        id: 3,
+        name: "F2",
+        type: "full",
+        position: notesPositions[10].value,
+      },
+      {
+        id: 4,
+        name: "Ab2",
+        type: "flat",
+        position: notesPositions[12].value,
+      },
+    ],
+  },
+  {
+    id: 17,
+    chordName: "Bm7",
+    notes: "B - D - F# - A",
+    chordNotes: [
+      {
+        id: 1,
+        name: "B1",
+        type: "full",
+        position: notesPositions[6].value,
+      },
+      {
+        id: 2,
+        name: "D2",
+        type: "full",
+        position: notesPositions[8].value,
+      },
+      {
+        id: 3,
+        name: "F#2",
+        type: "sharp",
+        position: notesPositions[10].value,
+      },
+      {
+        id: 4,
+        name: "A2",
+        type: "full",
+        position: notesPositions[12].value,
+      },
+    ],
+  },
+];
+
+export {
+  majorChords,
+  minorChords,
+  dominantSeventhChords,
+  majorSeventhChords,
+  minorSeventhChords,
+};

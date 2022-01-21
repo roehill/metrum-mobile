@@ -33,6 +33,8 @@ const ChordsScreen = (props) => {
         chords = type.dominantSeventhChords;
       } else if (chordType === "Maj7") {
         chords = type.majorSeventhChords;
+      } else if (chordType === "m7") {
+        chords = type.minorSeventhChords;
       }
 
       const chord = chords.find(

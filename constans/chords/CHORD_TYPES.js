@@ -19,10 +19,11 @@ const CHORD_TYPES = [
     chordFullName: "Major Seventh",
     chordType: "Maj7",
   },
-  // {
-  //   id: 5,
-  //   chordType: "m7",
-  // },
+  {
+    id: 5,
+    chordFullName: "Minor Seventh",
+    chordType: "m7",
+  },
   // {
   //   id: 6,
   //   chordType: "dim",
