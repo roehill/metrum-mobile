@@ -1,8 +1,11 @@
 import { useState } from "react";
+import { createStore, combineReducers } from "redux";
 import { StyleSheet, Text, View } from "react-native";
+
+import userReducer from "./store/reducers/user";
+
 import * as Font from "expo-font";
 import AppLoading from "expo-app-loading";
-
 import Navigator from "./navigation/Navigator";
 
 const fetchFonts = () => {
@@ -27,13 +30,7 @@ const App = () => {
       />
     );
   } else {
-    return (
-      <Navigator />
-
-      // <View style={styles.container}>
-      //   <MainMenu />
-      // </View>
-    );
+    return <Navigator />;
   }
 };
 
