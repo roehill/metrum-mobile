@@ -16,8 +16,6 @@ const fetchFonts = () => {
   });
 };
 
-import MainMenu from "./components/menu/MainMenu";
-
 const App = () => {
   const [dataLoaded, setDataLoaded] = useState(false);
 
@@ -34,12 +32,6 @@ const App = () => {
   }
 };
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: "center",
-    justifyContent: "center",
-  },
-});
+const styles = StyleSheet.create({});
 
 export default App;

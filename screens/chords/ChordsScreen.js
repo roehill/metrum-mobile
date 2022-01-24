@@ -21,20 +21,29 @@ const ChordsScreen = (props) => {
   const selectChordType = (selectedChordType) => {
     setChordType(selectedChordType);
   };
-
   const stave = () => {
     if (rootNote != "" && chordType != "") {
       let chords = {};
-      if (chordType === "Maj") {
+      if (chordType === "maj") {
         chords = type.majorChords;
-      } else if (chordType === "Min") {
+      } else if (chordType === "min") {
         chords = type.minorChords;
+      } else if (chordType === "dim") {
+        chords = type.diminishedChords;
+      } else if (chordType === "aug") {
+        chords = type.augmentedChords;
       } else if (chordType === "7") {
         chords = type.dominantSeventhChords;
-      } else if (chordType === "Maj7") {
+      } else if (chordType === "maj7") {
         chords = type.majorSeventhChords;
       } else if (chordType === "m7") {
         chords = type.minorSeventhChords;
+      } else if (chordType === "maj6") {
+        chords = type.majorSixthChords;
+      } else if (chordType === "min6") {
+        chords = type.minorSixthChords;
+      } else if (chordType === "dim7") {
+        chords = type.diminishedSeventhChords;
       }
 
       const chord = chords.find(

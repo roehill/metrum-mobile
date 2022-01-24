@@ -2,12 +2,12 @@ const CHORD_TYPES = [
   {
     id: 1,
     chordFullName: "Major",
-    chordType: "Maj",
+    chordType: "maj",
   },
   {
     id: 2,
     chordFullName: "Minor",
-    chordType: "Min",
+    chordType: "min",
   },
   {
     id: 3,
@@ -17,25 +17,38 @@ const CHORD_TYPES = [
   {
     id: 4,
     chordFullName: "Major Seventh",
-    chordType: "Maj7",
+    chordType: "maj7",
   },
   {
     id: 5,
     chordFullName: "Minor Seventh",
     chordType: "m7",
   },
-  // {
-  //   id: 6,
-  //   chordType: "dim",
-  // },
-  // {
-  //   id: 7,
-  //   chordType: "aug",
-  // },
-  // {
-  //   id: 8,
-  //   chordType: "sus2",
-  // },
+  {
+    id: 6,
+    chordFullName: "Diminished Seventh",
+    chordType: "dim7",
+  },
+  {
+    id: 7,
+    chordFullName: "Diminished",
+    chordType: "dim",
+  },
+  {
+    id: 8,
+    chordFullName: "Augmented",
+    chordType: "aug",
+  },
+  {
+    id: 9,
+    chordFullName: "Major Sixth",
+    chordType: "maj6",
+  },
+  {
+    id: 10,
+    chordFullName: "Minor Sixth",
+    chordType: "min6",
+  },
   // {
   //   id: 9,
   //   chordType: "sus4",
