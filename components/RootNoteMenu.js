@@ -1,39 +1,90 @@
 import { useEffect, useRef, useState } from "react";
+import { useSelector } from "react-redux";
 import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
 
 import colors from "./colors";
 import { sharpNotes, flatNotes } from "../constans/ROOT_NOTES";
 
 const RootNoteMenu = (props) => {
+  const userAccidentals = useSelector((state) => state.user.accidentals);
+
   const selectRootNote = (rootNote, id) => {
-    sharpNotes.map((note) => {
-      note.active = false;
-    });
-    props.onChooseRootNote(rootNote);
-    sharpNotes[id - 1].active = true;
+    if (userAccidentals === "sharp") {
+      sharpNotes.map((note) => {
+        note.active = false;
+      });
+      props.onChooseRootNote(rootNote);
+      sharpNotes[id - 1].active = true;
+    } else {
+      flatNotes.map((note) => {
+        note.active = false;
+      });
+      props.onChooseRootNote(rootNote);
+      flatNotes[id - 1].active = true;
+    }
   };
 
-  return (
-    <View>
-      <View style={styles.rootNotesContainer}>
-        {sharpNotes.map((rootNote) => (
-          <TouchableOpacity
-            onPress={selectRootNote.bind(this, rootNote.rootNote, rootNote.id)}
-            style={
-              rootNote.active ? styles.rootNoteItemActive : styles.rootNoteItem
-            }
-            key={rootNote.id}
-          >
-            <Text
-              style={rootNote.active ? styles.rootNoteActive : styles.rootNote}
+  if (userAccidentals === "sharp") {
+    return (
+      <View>
+        <View style={styles.rootNotesContainer}>
+          {sharpNotes.map((rootNote) => (
+            <TouchableOpacity
+              onPress={selectRootNote.bind(
+                this,
+                rootNote.rootNote,
+                rootNote.id
+              )}
+              style={
+                rootNote.active
+                  ? styles.rootNoteItemActive
+                  : styles.rootNoteItem
+              }
+              key={rootNote.id}
             >
-              {rootNote.rootNote}
-            </Text>
-          </TouchableOpacity>
-        ))}
+              <Text
+                style={
+                  rootNote.active ? styles.rootNoteActive : styles.rootNote
+                }
+              >
+                {rootNote.rootNote}
+              </Text>
+            </TouchableOpacity>
+          ))}
+        </View>
       </View>
-    </View>
-  );
+    );
+  } else {
+    return (
+      <View>
+        <View style={styles.rootNotesContainer}>
+          {flatNotes.map((rootNote) => (
+            <TouchableOpacity
+              onPress={selectRootNote.bind(
+                this,
+                rootNote.rootNote,
+                rootNote.id
+              )}
+              style={
+                rootNote.active
+                  ? styles.rootNoteItemActive
+                  : styles.rootNoteItem
+              }
+              key={rootNote.id}
+            >
+              <Text
+                style={
+                  rootNote.active ? styles.rootNoteActive : styles.rootNote
+                }
+              >
+                {rootNote.rootNote}
+              </Text>
+            </TouchableOpacity>
+          ))}
+        </View>
+      </View>
+    );
+  }
 };
 
 const styles = StyleSheet.create({

@@ -2,6 +2,7 @@ import { useState } from "react";
 import { View, Text, StyleSheet } from "react-native";
 
 import colors from "../../components/colors";
+import * as type from "../../constans/scales/SCALES";
 import { sharpNotes, flatNotes } from "../../constans/ROOT_NOTES";
 
 import Stave from "../../components/Stave";
