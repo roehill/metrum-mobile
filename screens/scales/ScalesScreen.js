@@ -2,9 +2,9 @@ import { useState } from "react";
 import { View, Text, StyleSheet } from "react-native";
 
 import colors from "../../components/colors";
-import ROOT_NOTES from "../../constans/ROOT_NOTES";
-import SCALES from "../../constans/scales/SCALES";
+import { sharpNotes, flatNotes } from "../../constans/ROOT_NOTES";
 
+import Stave from "../../components/Stave";
 import BackButton from "../../components/menu/BackButton";
 import RootNoteMenu from "../../components/RootNoteMenu";
 import ScaleTypeMenu from "../../components/scalesGenerator/ScaleTypeMenu";
@@ -21,19 +21,30 @@ const ScalesScreen = (props) => {
     setScaleType(selectedScaleType);
   };
 
-  const scaleImage = () => {
+  const stave = () => {
     if (rootNote != "" && scaleType != "") {
-      const scale = SCALES.find(
-        (scale) => scale.scaleName === `${rootNote} ${scaleType}`
+      let scales = {};
+      if (scaleType === "Major") {
+        scales = type.majorScales;
+      } else if (scaleType === "Harmonic Minor") {
+        scales = type.harmonicMinorScales;
+      } else if (scaleType === "Melodic Minor") {
+        scales = type.melodicMinorScales;
+      }
+
+      const scale = scales.find(
+        (scale) => scale.scaleName === `${rootNote}${scaleType}`
       );
-      const scaleImage = scale.scaleImage;
+
       return (
         <View>
-          <Text style={styles.chordName}>
-            {rootNote} {scaleType} scale
-          </Text>
-          {/* <Image style={styles.chordImage} source={chordImage} /> */}
-          {/* <Text style={styles.chordName}>{chord.chordNotes}</Text> */}
+          <View style={styles.scaleNameContainer}>
+            <Text style={styles.scaleName}>
+              {rootNote} {scaleType} scale
+            </Text>
+            <Text style={styles.scaleNotes}>( {scale.notes} )</Text>
+          </View>
+          <Stave notes={scale.scaleNotes} />
         </View>
       );
     }
@@ -43,7 +54,7 @@ const ScalesScreen = (props) => {
     <View style={styles.screen}>
       <BackButton
         onBack={() => {
-          ROOT_NOTES.map((note) => {
+          sharpNotes.map((note) => {
             note.active = false;
           });
           props.navigation.goBack();
@@ -51,9 +62,9 @@ const ScalesScreen = (props) => {
       />
       <Text style={styles.hint}>Choose the root note...</Text>
       <RootNoteMenu onChooseRootNote={selectRootNote} />
-      <Text style={styles.hint}>...and a scale</Text>
+      <Text style={styles.hint}>...and a scale type</Text>
       <ScaleTypeMenu onChooseScaleType={selectScaleType} />
-      {scaleImage()}
+      {stave()}
     </View>
   );
 };
@@ -69,6 +80,21 @@ const styles = StyleSheet.create({
     fontFamily: "poppins-bold",
     color: colors.textColor,
     fontSize: 18,
+  },
+  scaleNameContainer: {
+    marginVertical: 10,
+  },
+  scaleName: {
+    fontFamily: "poppins-bold",
+    color: "#404040",
+    fontSize: 18,
+    textAlign: "center",
+  },
+  scaleNotes: {
+    fontFamily: "poppins-bold",
+    color: "#404040",
+    fontSize: 16,
+    textAlign: "center",
   },
 });
 

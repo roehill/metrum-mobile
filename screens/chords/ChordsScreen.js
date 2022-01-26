@@ -1,9 +1,9 @@
 import { useState } from "react";
-import { View, Text, StyleSheet, Image } from "react-native";
+import { View, Text, StyleSheet } from "react-native";
 
 import colors from "../../components/colors";
 import * as type from "../../constans/chords/CHORDS";
-import ROOT_NOTES from "../../constans/ROOT_NOTES";
+import { sharpNotes, flatNotes } from "../../constans/ROOT_NOTES";
 
 import Stave from "../../components/Stave";
 import BackButton from "../../components/menu/BackButton";
@@ -21,6 +21,7 @@ const ChordsScreen = (props) => {
   const selectChordType = (selectedChordType) => {
     setChordType(selectedChordType);
   };
+
   const stave = () => {
     if (rootNote != "" && chordType != "") {
       let chords = {};
@@ -54,12 +55,11 @@ const ChordsScreen = (props) => {
         <View>
           <View style={styles.chordNameContainer}>
             <Text style={styles.chordName}>
-              {rootNote}
-              {chordType} chord
+              {rootNote} {chordType} chord
             </Text>
-            <Text style={styles.chordName}>( {chord.notes} )</Text>
+            <Text style={styles.chordNotes}>( {chord.notes} )</Text>
           </View>
-          <Stave chordNotes={chord.chordNotes} />
+          <Stave notes={chord.chordNotes} />
         </View>
       );
     }
@@ -69,7 +69,7 @@ const ChordsScreen = (props) => {
     <View style={styles.screen}>
       <BackButton
         onBack={() => {
-          ROOT_NOTES.map((note) => {
+          sharpNotes.map((note) => {
             note.active = false;
           });
           props.navigation.goBack();
@@ -96,9 +96,6 @@ const styles = StyleSheet.create({
     color: colors.textColor,
     fontSize: 18,
   },
-  chordImage: {
-    width: "100%",
-  },
   chordNameContainer: {
     marginVertical: 10,
   },
@@ -106,6 +103,12 @@ const styles = StyleSheet.create({
     fontFamily: "poppins-bold",
     color: "#404040",
     fontSize: 18,
+    textAlign: "center",
+  },
+  chordNotes: {
+    fontFamily: "poppins-bold",
+    color: "#404040",
+    fontSize: 16,
     textAlign: "center",
   },
 });

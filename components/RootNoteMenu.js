@@ -2,21 +2,21 @@ import { useEffect, useRef, useState } from "react";
 import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
 
 import colors from "./colors";
-import ROOT_NOTES from "../constans/ROOT_NOTES";
+import { sharpNotes, flatNotes } from "../constans/ROOT_NOTES";
 
 const RootNoteMenu = (props) => {
   const selectRootNote = (rootNote, id) => {
-    ROOT_NOTES.map((note) => {
+    sharpNotes.map((note) => {
       note.active = false;
     });
     props.onChooseRootNote(rootNote);
-    ROOT_NOTES[id - 1].active = true;
+    sharpNotes[id - 1].active = true;
   };
 
   return (
     <View>
       <View style={styles.rootNotesContainer}>
-        {ROOT_NOTES.map((rootNote) => (
+        {sharpNotes.map((rootNote) => (
           <TouchableOpacity
             onPress={selectRootNote.bind(this, rootNote.rootNote, rootNote.id)}
             style={

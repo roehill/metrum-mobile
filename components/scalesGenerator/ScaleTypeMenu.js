@@ -7,9 +7,11 @@ import SCALE_TYPES from "../../constans/scales/SCALE_TYPES";
 
 const ScaleTypeMenu = (props) => {
   const [visible, setVisible] = useState(false);
+  const [showScale, setShowScale] = useState("");
 
-  const selectScaleType = (scaleType) => {
+  const selectScaleType = (scaleType, scaleFullName) => {
     props.onChooseScaleType(scaleType);
+    setShowScale(scaleFullName);
     setVisible(false);
   };
 
@@ -17,10 +19,18 @@ const ScaleTypeMenu = (props) => {
     setVisible(!visible);
   };
 
+  const dropdownText = () => {
+    if (showScale === "") {
+      return <Text style={styles.dropdownText}>Tap to expand</Text>;
+    } else {
+      return <Text style={styles.dropdownText}>Selected: {showScale}</Text>;
+    }
+  };
+
   return (
     <View>
       <TouchableOpacity onPress={toggleDropdown} style={styles.dropdown}>
-        <Text style={styles.dropdownText}>Tap to expand</Text>
+        {dropdownText()}
         <AntDesign name="down" size={25} color={colors.primary} />
       </TouchableOpacity>
       <Modal
@@ -34,7 +44,11 @@ const ScaleTypeMenu = (props) => {
             <TouchableOpacity
               key={scale.id}
               style={styles.dropdownListItem}
-              onPress={selectScaleType.bind(this, scale.scaleType)}
+              onPress={selectScaleType.bind(
+                this,
+                scale.scaleType,
+                scale.scaleFullName
+              )}
             >
               <Text style={styles.dropdownListItemText}>{scale.scaleType}</Text>
             </TouchableOpacity>

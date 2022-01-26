@@ -15,7 +15,7 @@ const Stave = (props) => {
         <View style={styles.additionalLane}></View>
       </View>
       <View style={styles.notesContainer}>
-        {props.chordNotes.map((note) => {
+        {props.notes.map((note) => {
           if (note.type === "full") {
             return (
               <View key={note.id}>
@@ -79,7 +79,6 @@ const styles = StyleSheet.create({
   stave: {
     paddingVertical: 40,
     width: "100%",
-    // height: 150,
     backgroundColor: "white",
     alignItems: "center",
     justifyContent: "center",
@@ -87,13 +86,13 @@ const styles = StyleSheet.create({
   line: {
     marginVertical: 9,
     height: 2,
-    width: "80%",
+    width: "95%",
     backgroundColor: "#404040",
   },
   additionalLane: {
     marginVertical: 9,
     height: 2,
-    width: "80%",
+    width: "95%",
     backgroundColor: "#E4E4E4",
   },
   notesContainer: {
