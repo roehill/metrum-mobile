@@ -1,90 +1,83 @@
-import { useEffect, useRef, useState } from "react";
-import { useSelector } from "react-redux";
-import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
+import { useState } from "react";
+import { View, Text, StyleSheet, TouchableOpacity, Button } from "react-native";
+import { MaterialCommunityIcons } from "@expo/vector-icons";
 
 import colors from "./colors";
 import { sharpNotes, flatNotes } from "../constans/ROOT_NOTES";
 
 const RootNoteMenu = (props) => {
-  const userAccidentals = useSelector((state) => state.user.accidentals);
+  const [userAccidentals, setUserAccidentals] = useState(true);
 
-  const selectRootNote = (rootNote, id) => {
-    if (userAccidentals === "sharp") {
-      sharpNotes.map((note) => {
-        note.active = false;
-      });
-      props.onChooseRootNote(rootNote);
-      sharpNotes[id - 1].active = true;
-    } else {
-      flatNotes.map((note) => {
-        note.active = false;
-      });
-      props.onChooseRootNote(rootNote);
-      flatNotes[id - 1].active = true;
+  const changeAccidentals = () => {
+    setUserAccidentals(!userAccidentals);
+    notesWithAccidentals();
+  };
+
+  const notesWithAccidentals = () => {
+    if (userAccidentals === true) {
+      return sharpNotes;
+    } else if (userAccidentals === false) {
+      return flatNotes;
     }
   };
 
-  if (userAccidentals === "sharp") {
-    return (
-      <View>
-        <View style={styles.rootNotesContainer}>
-          {sharpNotes.map((rootNote) => (
-            <TouchableOpacity
-              onPress={selectRootNote.bind(
-                this,
-                rootNote.rootNote,
-                rootNote.id
-              )}
-              style={
-                rootNote.active
-                  ? styles.rootNoteItemActive
-                  : styles.rootNoteItem
-              }
-              key={rootNote.id}
+  const selectRootNote = (rootNote, id) => {
+    notesWithAccidentals().map((note) => {
+      note.active = false;
+    });
+    props.onChooseRootNote(rootNote);
+    notesWithAccidentals()[id - 1].active = true;
+  };
+
+  const accidentalIcon = () => {
+    if (userAccidentals === true) {
+      return (
+        <MaterialCommunityIcons
+          style={styles.accidental}
+          name="music-accidental-sharp"
+          size={40}
+          color="#FFF"
+        />
+      );
+    } else if (userAccidentals === false) {
+      return (
+        <MaterialCommunityIcons
+          style={styles.accidental}
+          name="music-accidental-flat"
+          size={40}
+          color="#FFF"
+        />
+      );
+    }
+  };
+
+  return (
+    <View>
+      <TouchableOpacity
+        onPress={changeAccidentals}
+        style={styles.accidentalWrapper}
+      >
+        {accidentalIcon()}
+      </TouchableOpacity>
+      <View style={styles.rootNotesContainer}>
+        {notesWithAccidentals().map((rootNote) => (
+          <TouchableOpacity
+            onPress={selectRootNote.bind(this, rootNote.rootNote, rootNote.id)}
+            style={
+              rootNote.active ? styles.rootNoteItemActive : styles.rootNoteItem
+            }
+            key={rootNote.id}
+          >
+            <Text
+              style={rootNote.active ? styles.rootNoteActive : styles.rootNote}
             >
-              <Text
-                style={
-                  rootNote.active ? styles.rootNoteActive : styles.rootNote
-                }
-              >
-                {rootNote.rootNote}
-              </Text>
-            </TouchableOpacity>
-          ))}
-        </View>
+              {rootNote.rootNote}
+            </Text>
+          </TouchableOpacity>
+        ))}
       </View>
-    );
-  } else {
-    return (
-      <View>
-        <View style={styles.rootNotesContainer}>
-          {flatNotes.map((rootNote) => (
-            <TouchableOpacity
-              onPress={selectRootNote.bind(
-                this,
-                rootNote.rootNote,
-                rootNote.id
-              )}
-              style={
-                rootNote.active
-                  ? styles.rootNoteItemActive
-                  : styles.rootNoteItem
-              }
-              key={rootNote.id}
-            >
-              <Text
-                style={
-                  rootNote.active ? styles.rootNoteActive : styles.rootNote
-                }
-              >
-                {rootNote.rootNote}
-              </Text>
-            </TouchableOpacity>
-          ))}
-        </View>
-      </View>
-    );
-  }
+    </View>
+  );
 };
 
 const styles = StyleSheet.create({
@@ -139,6 +132,20 @@ const styles = StyleSheet.create({
     color: "white",
     fontFamily: "poppins-bold",
     fontSize: 18,
+  },
+  accidentalWrapper: {
+    position: "absolute",
+    right: 0,
+    top: -30,
+    backgroundColor: colors.primary,
+    width: 50,
+    height: 40,
+    borderRadius: 3,
+  },
+  accidental: {
+    position: "absolute",
+    right: 5,
+    bottom: 0,
   },
 });
 
