@@ -14,6 +14,11 @@ const SCALE_TYPES = [
     scaleFullName: "Melodic Minor",
     scaleType: "Melodic Minor",
   },
+  {
+    id: 4,
+    scaleFullName: "Blues",
+    scaleType: "Blues",
+  },
 ];
 
 export default SCALE_TYPES;
