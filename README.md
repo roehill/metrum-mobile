@@ -1,4 +1,5 @@
-Clean and efficient music chords and scales generator.
+<h1>MetrumApp</h1>
+<p>Clean and efficient music chords and scales generator.</p>
 
 <h2>IMPORTANT NOTE</h2>
 <p>Please note that the repository does not contain data files.<br>
