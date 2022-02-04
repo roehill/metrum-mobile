@@ -10,5 +10,3 @@ IDEAS:
 
 1. Transpozycja dźwięków w zależności od instrumentu.
 2. Dopasowywanie skal i akordów do wybranych dźwięków.
-
-COINFIRM: Jak połączyć Zendesk z Telegramem.
